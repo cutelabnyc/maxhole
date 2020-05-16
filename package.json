@@ -1,0 +1,16 @@
+{
+  "name": "maxhole",
+  "version": "0.1.0",
+  "description": "Send messages to other Max patches",
+  "main": "index.js",
+  "author": "Sam Tarakajian <sam@cycling74.com>",
+  "license": "MIT",
+  "private": false,
+  "dependencies": {
+    "express": "^4.17.1",
+    "ws": "^7.3.0"
+  },
+  "scripts": {
+    "start": "node index.js"
+  }
+}

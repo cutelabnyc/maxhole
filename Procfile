@@ -1,0 +1,1 @@
+web: yarn install && node index.js
