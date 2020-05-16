@@ -40,7 +40,11 @@ function connect() {
 
     client.on("message", (data) => {
         if (maxAPI) {
-            maxAPI.outlet(JSON.parse(data));
+            try {
+                maxAPI.outlet(JSON.parse(data));
+            } catch (e) {
+                maxAPI.post(e.toString());
+            }
         } else {
             console.log(data);
         }
@@ -68,6 +72,6 @@ if (maxAPI) {
     });
 } else {
     setInterval(() => {
-        client.send(`Message ${Date.now()}`);
+        client.send(JSON.stringify(`Message ${Date.now()}`));
     }, 1000);
 }
