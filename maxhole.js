@@ -63,10 +63,14 @@ if (maxAPI) {
 
     maxAPI.addHandler(maxAPI.MESSAGE_TYPES.ALL, (handled, ...args) => {
         if (!handled) {
-            if (args.length > 1) {
-                client.send(JSON.stringify(args));
-            } else {
-                client.send(JSON.stringify(args[0]));
+            try {
+                if (args.length > 1) {
+                    client.send(JSON.stringify(args));
+                } else {
+                    client.send(JSON.stringify(args[0]));
+                }
+            } catch (e) {
+                maxAPI.post(e.toString());
             }
         }
     });
